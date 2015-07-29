@@ -12,7 +12,7 @@ For this process you need a special environment file which maps XML to ConTeXt. 
 
 Most books are not printed in a standard papersize so we have to setup our own papersizes. Papersizes in the book industry are called trim sizes. I define papersizes for trim sizes that are supported by Createspace. The papersizes are defined in the `env-trimsize*.tex` files. The name of the environment reflects the chosen trim size.
 
-Settings that are not trim size dependent I define in the other `env-*` files in this repository. The structure of the files will change over time.
+Settings that are not trim size dependent are defined in the other `env-*` files in this repository. The structure of the files will change over time.
 
 ## Usage
 
