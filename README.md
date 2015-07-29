@@ -18,25 +18,27 @@ Settings that are not trim size dependent are defined in the other `env-*` files
 
 If you want to use this repository to typeset Markdown files via Pandoc, please do the following after installing Pandoc.
 
-1. Clone this repository
+* Clone this repository
 
-2. Clone [from-pandoc-to-context](https://github.com/ousia/from-pandoc-to-context) in the same directory so that it is in the same parent directory as this repository.
+* Clone [from-pandoc-to-context](https://github.com/ousia/from-pandoc-to-context) in the same directory so that it is in the same parent directory as this repository.
 
-3. Create a Pandoc project.
+* Create a Pandoc project.
 
    You can start with my [boilerplate](https://github.com/juh2/pandoc-project-boilerplate), but you have to adjust the Makefile according to convert Markdown to XHTML and to typeset the XHTML file with ConTeXt.
 
-4. Create a file called `env.tex` in your Pandoc project with the following content:
+* Create a file called `env.tex` in your Pandoc project with the following content:
 
-       \input ../context-environments/env-trimsize5-8.tex
-       \input ../context-environments/env-fonts.tex
-       \input ../context-environments/env-heading.tex
-       \input ../context-environments/env-makeups.tex
-       \input ../context-environments/layout.tex
-       \input ../from-pandoc-to-context/pandoc-xhtml.tex
+~~~~~~~~~~~
+   \input ../context-environments/env-trimsize5-8.tex
+   \input ../context-environments/env-fonts.tex
+   \input ../context-environments/env-heading.tex
+   \input ../context-environments/env-makeups.tex
+   \input ../context-environments/layout.tex
+   \input ../from-pandoc-to-context/pandoc-xhtml.tex
+~~~~~~~~~~~
 
-5. Create a XHTML file with Pandoc from your Markdown sources.
+* Create a XHTML file with Pandoc from your Markdown sources.
 
-6. Compile the XHTML file with ConTeXt using the command option `--environment=env.tex`. This will load all environment files from this repository and the mapping file from the repo [from-pandoc-to-context](https://github.com/ousia/from-pandoc-to-context)
+* Compile the XHTML file with ConTeXt using the command option `--environment=env.tex`. This will load all environment files from this repository and the mapping file from the repo [from-pandoc-to-context](https://github.com/ousia/from-pandoc-to-context)
 
-7. Consider using the command option `--mode` to make use of the modes in the environment files.
+* Consider using the command option `--mode` to make use of the modes in the environment files.
