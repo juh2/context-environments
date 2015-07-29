@@ -28,12 +28,12 @@ If you want to use this repository to typeset Markdown files via Pandoc, please 
 
 4. Create a file called `env.tex` in your Pandoc project with the following content:
 
-    \input ../context-environments/env-trimsize5-8.tex
-    \input ../context-environments/env-fonts.tex
-    \input ../context-environments/env-heading.tex
-    \input ../context-environments/env-makeups.tex
-    \input ../context-environments/layout.tex
-    \input ../from-pandoc-to-context/pandoc-xhtml.tex
+       \input ../context-environments/env-trimsize5-8.tex
+       \input ../context-environments/env-fonts.tex
+       \input ../context-environments/env-heading.tex
+       \input ../context-environments/env-makeups.tex
+       \input ../context-environments/layout.tex
+       \input ../from-pandoc-to-context/pandoc-xhtml.tex
 
 5. Create a XHTML file with Pandoc from your Markdown sources.
 
