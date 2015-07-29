@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-I am new to ConTeXt, so don't expect anything fancy here. Most settings are copied from other peoples setup.
+I am new to ConTeXt, so don't expect anything fancy here. Most settings are copied from other people's setup.
 
 ## Purpose
 
@@ -39,4 +39,4 @@ If you want to use this repository to typeset Markdown files via Pandoc, please 
 
 6. Compile the XHTML file with ConTeXt using the command option `--environment=env.tex`. This will load all environment files from this repository and the mapping file from the repo [from-pandoc-to-context](https://github.com/ousia/from-pandoc-to-context)
 
-7. Consider using the command option `--mode` to make use of the modes in the environment files. 
+7. Consider using the command option `--mode` to make use of the modes in the environment files.
