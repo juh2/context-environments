@@ -1,0 +1,81 @@
+\definefontfamily
+    [mainface]
+    [rm]
+    [Latin Modern Roman]
+
+\definefontfamily
+    [mainface]
+    [it]
+    [Ĺatin Modern Roman]
+
+\definefontfamily
+    [mainface]
+    [mm]
+    [TeX Gyre Pagella Math]
+
+
+\definefontfamily
+    [mainface]
+    [ss]
+    [URWClassico]
+
+\definefontfamily
+    [mainface]
+    [tt]
+    [Cousine]
+    [features=none,
+     scale=0.875]
+
+\definefontfamily
+    [ornamenta]
+    [rm]
+    [TypographyTribute]
+
+\setupbodyfont
+    [mainface, 10pt]
+
+\definefontsize
+    [xy]
+
+\definefontsize
+    [xxxx]
+
+\setupbodyfontenvironment
+    [default]
+    [xy=.9,
+     xxxx=0.45,
+     em=italic]
+
+\definefontfeature
+     [noliga]
+     [liga=no]
+
+\definefontfeature
+     [hebrew]
+     [lang=heb,
+      script=hebr]
+
+\definefontfeature[default]
+     [default]
+     [expansion=hz,
+      protrusion=hanging,
+      script=latn]
+
+\definefontfeature
+     [default]
+     [default]
+     [script=latn,
+      expansion=quality,
+      protrusion=quality,
+      itlc=yes,
+      textitalics=yes,
+      lnum=yes]
+
+\setupitaliccorrection
+     [global, always]
+
+\definefallbackfamily
+  [mainface]
+  [rm]
+  [GFS Didot]
+  [preset=range:greek]

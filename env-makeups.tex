@@ -1,0 +1,76 @@
+\startsetups[setups:dedication]
+    \setupwhitespace
+        [big]
+\stopsetups
+
+
+\definemakeup
+   [coverpage]
+   [pagestate=start]
+
+\setuplayout
+   [coverpage]
+       [header=0cm,
+        footer=0cm,
+        backspace=2cm,
+        width=middle]% topspace=2cm, height=fit]
+
+
+\definemakeup
+    [titlepage]
+    [align={middle},
+     doublesided=no,
+     pagestate=start]
+
+\definemakeup
+    [copyright]
+    [bottom=,
+     style={\tfx\setupinterlinespace},
+     setups=setups:copyright,
+     page=no,
+     pagestate=start]
+
+\setuplayout
+    [copyright]
+    [backspace=.1\textwidth,
+     width=middle]
+
+\definemakeup
+    [colophon]
+    [align=middle,
+     style={\tfx\setupinterlinespace},
+     doublesided=no,
+     page=pagebreak:part,
+     pagestate=start,
+     setups=setups:colophon]
+
+\setuplayout
+    [colophon]
+    [backspace=.3\textwidth,
+     width=middle]
+
+\definemakeup
+    [dedication]
+    [style=\em,
+     top=\vskip.1\paperheight,
+     setups=setups:dedication,
+     align={left, nothyphenated},
+     pagestate=start]
+
+\setuplayout
+    [dedication]
+    [backspace=.675\textwidth,
+     cutspace=\cutspace,
+     width=middle]
+
+\definemakeup
+    [epigraph]
+    [top=\vskip.2\paperheight,
+     align={flushright, nothyphenated},
+     pagestate=start]
+
+\setuplayout
+    [epigraph]
+    [backspace=.35\paperwidth,
+     cutspace=\cutspace,
+     width=middle]

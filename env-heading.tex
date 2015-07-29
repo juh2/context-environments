@@ -1,0 +1,70 @@
+\definestructureresetset
+    [default]
+    [1,0,1]
+    [1] % reset part, chapter, but not section
+
+\setupheads
+    [sectionresetset=default,
+     sectionconversionset=sectionnumbers]
+
+\definepagebreak
+    [pagebreak:part]
+    [yes, header, footer, right]
+
+\definepagebreak
+    [pagebreak:chapter]
+    [yes, header, footer]
+
+\definefontfeature
+    [section]
+    [onum=yes,smcp=yes,c2sc=yes]
+
+\definestructureconversionset
+    [sectionnumbers]
+    [0,n,Characters,n,g]
+    [n]
+
+\definestructureconversionset
+    [appendix:sectionnumbers]
+    [0,Characters,n,g,characters]
+    [n]
+
+\setuphead
+    [part]
+    [align=center,
+     page={pagebreak:part},
+     before={\dontleavehmode\vfill},
+     after={\vfill\dontleavehmode},
+     number=no,
+     placehead=yes,
+     style=\tfc\addfs{section},
+     header=empty,
+     footer=empty]
+
+\setuphead
+    [chapter,title]
+    [style=\ita,
+     align=center,
+     after={\blank[2*line]},
+     page=pagebreak:chapter,
+     sectionsegments=chapter,
+     header=empty]
+
+\setuphead
+    [section]
+    [alternative=inmargin,
+     style=\it,
+     before={\blank[4*small]},
+     after={\blank[samepage,3*small]},
+     sectionsegments=section]
+
+\setuphead
+    [subsection]
+    [sectionsegments=subsection,
+     number=no,
+     before={\blank[big]},
+     after={\blank[samepage,big]}]
+
+\setuphead
+    [subsubsection]
+    [margin=1em]

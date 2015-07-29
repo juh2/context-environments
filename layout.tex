@@ -1,0 +1,326 @@
+\startluacode
+
+    function document.addfunnyhyphen(tfmdata)
+        local underscore = utf.byte("_")
+        local char       = tfmdata.characters[underscore]
+        if not char then return end
+        tfmdata.characters[0xFE000]   = {
+            width    = 0,
+            height   = 0,
+            depth    = 0,
+            commands = {
+                { "right", -char.width },
+                { "down", char.depth },
+                { "slot", 1, underscore },
+            }
+        }
+    end
+
+
+utilities.sequencers.appendaction("aftercopyingcharacters","after","document.addfunnyhyphen")
+
+\stopluacode
+
+\setuplanguage
+    [de-DE]
+    [spacing=packed,
+    lefthyphenmin=2,
+    righthyphenmin=2]
+% {\en \hyphenation{MacOS}}
+
+\definehyphenationfeatures
+    [underscore]
+    [righthyphenchar="FE000]
+
+\definehyphenationfeatures
+    [less]
+    [hyphenmin=6]
+
+\setuphyphenation
+    [method=traditional]
+
+\sethyphenationfeatures
+%    [strict]
+    [default,less]
+
+
+
+\setupwhitespace[none]
+
+\usemodule[layout]
+\chardef\charwidthmethod=4
+\def\charwidthlanguage{\currentmainlanguage}
+
+
+%~ \showframe\showgrid
+
+% This is the draft mode
+
+\startmode[A4]
+    \setuppapersize
+        [A4]
+    \setuplayout
+        [setups=*lessstrict,
+         backspace=2.18cm,
+         width=middle,
+         topspace=2cm,
+         bottomspace=1.25cm,
+         height=middle,
+         header=0cm,
+         footer=1.5cm]
+\stopmode
+
+
+%\startnotmode[letter]
+%    \setuplayout
+%    [setups=*lessstrict,
+%     backspace=2.5cm,
+%     width=middle,
+%     topspace=2cm,
+%     bottomspace=1.25cm,
+%     height=middle,
+%     header=0cm,
+%     footer=1.5cm]
+%\stopnotmode
+
+\startsetups[*lessstrict]
+    \setup[reset]
+    \widowpenalty=10000
+    \clubpenalty=10000
+    \brokenpenalty=0
+\stopsetups
+
+\setupalign
+    [hanging, hz, tolerant]
+
+\setuppagenumbering
+    [page=,
+     alternative=doublesided,
+     location={bottom,right}]
+
+
+\definebreakpoint
+    [compound]
+    [—]% em-dash
+
+\definebreakpoint
+    [compound]
+    [–]% en-dash
+
+\setbreakpoints
+    [compound]
+
+
+
+
+\setupitemize
+    [each]
+    [loose]
+    [margin=yes,
+     blank=halfline,
+     indenting=no]
+
+
+\setuptyping
+    [margin=yes,
+     align={right,broad},
+     blank=halfline]
+
+\definetype
+    [TeXcode]
+    [option=TEX]
+
+\definetype
+    [TeXspace]
+    [option=TEX,space=on]
+
+\def\ConTeXt{Con\-\TeX{}t}
+
+\setupinteraction
+    [state=start,
+     color=,
+     style=,
+     contrastcolor=,
+     focus=standard]
+
+\enabledirectives
+    [references.border]
+
+\placebookmarks
+    [part,chapter,hiddentitle,section,subsection,subsubsection]
+    [part,chapter,hiddentitle]
+
+\setupinteractionscreen
+    [width=fit,
+     option=bookmark]
+
+\setuplist
+    [part]
+    [alternative=b,
+     pagenumber=no,
+     align=center,
+     textstyle=\tf]
+
+
+% \startmode[letter]
+%     \setuplist
+%         [chapter]
+%         [before=]
+% \stopmode
+
+\startmode[trimsize]
+    \setuplist
+        [chapter]
+        [before={\blank[big]}]
+\stopmode
+
+\startnotmode[trimize]
+    \setuplist
+    [chapter]
+    [before={\blank[small]}]
+\stopmode
+
+
+\setupindenting
+    [yes, medium, always]
+
+\setupinterlinespace
+    [line=3.05ex]
+
+\setupwhitespace
+    [none]
+
+\setupnotation
+  [footnote]
+  [alternative=left,
+  style=\tfxy]
+
+%\setupnote
+%    [footnote]
+%    [bodyfont=]
+
+%~ \setupnarrower[narrow][before=blank, after=blank]
+%
+%\setupnote
+%    [footnote]
+%    [way=bytext,
+%%     location=page,
+%%     split=verystrict,
+%%     scope=text,
+%%     align=strict,
+%     rule=on,
+%     bodyfont=8pt,
+%%     numberstyle=\tf,
+%%     before={\vskip0pt},
+%%     textcommand={\hairspace\high},
+%%     before=\directsetup{setups:footnotes}
+%     ]
+%
+%\setupnotation
+%    [footnote]
+%    [numbercommand=\tfxy,
+%     numberconversion=numerals,
+%     alternative=serried,
+%     style=\tfxy]
+%
+
+\setupreferencestructureprefix
+    [default]
+    [prefixsegments=2:4]
+
+\setupreferencing
+    [left=,
+     right=,
+     interaction=all]
+
+
+\definesectionblock
+    [whatcomesfirst]
+    [firstmatter]
+
+\setupsectionblock
+    [firstmatter]
+    [page=pagebreak:
+    part, after=\page]
+
+\startsectionblockenvironment[whatcomesfirst]
+    \setuppagenumbering
+        [location=]
+    \setupinterlinespace
+        [line=2.8ex]
+\stopsectionblockenvironment
+
+\setupsectionblock
+    [frontpart]
+    [page=pagebreak:part,
+     after=\page]
+
+\setupsectionblock
+    [bodypart]
+    [page=pagebreak:part, after=\page]
+
+\startsectionblockenvironment[bodypart]
+    \writebetweenlist
+        [chapter]
+        {{\blank[3*halfline]}}
+\stopsectionblockenvironment
+
+\setupsectionblock
+    [backpart]
+    [page=pagebreak:part,
+     after=\page]
+
+\startsectionblockenvironment[backpart]
+    \writebetweenlist
+        [chapter]
+        {{\blank[3*halfline]}}
+\stopsectionblockenvironment
+
+\setupsectionblock
+    [appendix]
+    [page=pagebreak:part,
+     after=\page]
+
+\startsectionblockenvironment[appendix]
+    \writebetweenlist
+        [chapter]
+        {{\blank[3*halfline]}}
+\stopsectionblockenvironment
+
+\startsetups[setups:copyright]
+    \setupinterlinespace
+        [line=3ex]
+    \setupwhitespace
+        [small]
+    \setupindenting
+        [always, 0pt]
+\stopsetups
+
+\startsetups[setups:colophon]
+    \setupinterlinespace
+        [line=3ex]
+    \setupwhitespace
+        [medium]
+    \setupindenting
+        [always, 0pt]
+\stopsetups
+
+\startsetups[setups:footnotes]
+    \setupinterlinespace
+        [line=2.85ex]
+    \setupindenting
+        [always, 0pt]
+\stopsetups
+
+
+
+\sethyphenatedurlafter
+    {:./=-}
+
+\sethyphenatedurlbefore
+    {&?}
+
+\setupstartstop
+    [blockquote]
+    [before={\blank\startnarrow\setupindenting[yes,next]},
+     after={\stopnarrow\blank}]

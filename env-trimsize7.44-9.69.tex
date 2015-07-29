@@ -1,0 +1,19 @@
+\definepapersize[trimsize][width=7.44in, height=9.69in]
+
+\startmode[trimsize]
+    \setuppapersize[trimsize]
+
+    \setupbodyfont
+        [mainface, 12pt]
+
+    \setuplayout
+        [setups=*lessstrict,
+         backspace=0.6in,
+%         margin=1in,
+         width=65\averagecharwidth,
+         topspace=0.9in,
+         bottomspace=0in,
+         height=fit,
+         header=0cm,
+         footer=0.6in]
+\stopmode
