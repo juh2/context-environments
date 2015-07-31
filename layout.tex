@@ -233,6 +233,37 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
      right=,
      interaction=all]
 
+\definesectionblock
+   [whatcomeslast]
+   [lastmatter]
+   [number=no]
+
+\setupsectionblock
+   [lastmatter]
+   [page=no,
+    after=\page]
+
+\startsectionblockenvironment[whatcomeslast]
+   \writebetweenlist
+       [chapter]
+       {{\blank[3*halfline]}}
+\stopsectionblockenvironment
+
+\definesectionblock
+   [tocpart]
+   [tableofcontents]
+   [number=no]
+
+\setupsectionblock
+   [tableofcontents]
+   [page=no,
+    after=\page]
+
+\startsectionblockenvironment[tocpart]
+   \setuppagenumbering[location=]
+   %~ \setupalign[middle]
+   \setupinterlinespace[line=2.8ex]
+\stopsectionblockenvironment
 
 \definesectionblock
     [whatcomesfirst]
