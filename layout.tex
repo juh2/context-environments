@@ -34,15 +34,16 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
 
 \definehyphenationfeatures
     [less]
-    [hyphenmin=6]
+    [hyphenmin=2]
 
 \setuphyphenation
     [method=traditional]
 
+\registerhyphenationexception[Wirt-schafts-oli-gar-chie]
+
 \sethyphenationfeatures
     [strict]
 %    [default,less]
-
 
 
 \setupwhitespace[none]
