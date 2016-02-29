@@ -40,12 +40,8 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
     [method=traditional]
 
 \sethyphenationfeatures
-    [strict]
-%    [default,less]
-
-
-
-\setupwhitespace[none]
+%    [strict]
+    [default,less]
 
 \usemodule[layout]
 \chardef\charwidthmethod=4
@@ -182,13 +178,14 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
 
 
 \setupindenting
-    [yes, medium, always]
+%    [yes, medium, always]
+  [none]
 
 \setupinterlinespace
     [line=3.05ex]
 
 \setupwhitespace
-    [none]
+    [medium]
 
 \setupnotation
   [footnote]
