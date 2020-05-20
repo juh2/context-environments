@@ -1,3 +1,4 @@
+\startenvironment *
 \startluacode
 
     function document.addfunnyhyphen(tfmdata)
@@ -23,7 +24,8 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
 
 \setuplanguage
     [de-DE]
-    [lefthyphenmin=2,
+    [spacing=packed,
+    lefthyphenmin=2,
     righthyphenmin=2]
 % {\en \hyphenation{MacOS}}
 
@@ -38,11 +40,12 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
 \setuphyphenation
     [method=traditional]
 
+\registerhyphenationexception[Wirt-schafts-oli-gar-chie]
+
 \sethyphenationfeatures
     [strict]
 %    [default,less]
 
-\registerhyphenationexception[de][vo-yeu-ris-ti-schen zu-sam-men-ge-rauf-ten Ho-nig-atem Wüs-ten-atem La-bans Lif-shitz]
 
 \setupwhitespace[none]
 
@@ -354,3 +357,5 @@ utilities.sequencers.appendaction("aftercopyingcharacters","after","document.add
     [blockquote]
     [before={\blank\startnarrow\setupindenting[yes,next]},
      after={\stopnarrow\blank}]
+
+\stopenvironment

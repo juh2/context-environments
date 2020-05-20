@@ -1,0 +1,14 @@
+\startenvironment *
+% Ligaturen ausschalten funktioniert nicht
+%\translateinput[auflösen][auf|*|lösen]
+%\enableinputtranslation
+\replaceword[sellig][auflösen][auf{-}{}{\zwnj}lösen]
+\replaceword[sellig][Aufklärung][Auf{-}{}{\zwnj}klärung]
+\replaceword[sellig][aufhörten][auf{-}{}{\zwnj}hörten]
+\replaceword[sellig][aufhören][auf{-}{}{\zwnj}hören]
+\replaceword[sellig][Auflösung][Auf{-}{}{\zwnj}lösung]
+\replaceword[sellig][Auflage][Auf{-}{}{\zwnj}lage]
+
+\setreplacements[sellig]
+
+\stopenvironment

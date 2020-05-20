@@ -1,21 +1,22 @@
 \startenvironment *
-\definepapersize[trimsize][width=7.5in, height=9.25in]
+\definepapersize[trimsize][width=130mm, height=205mm]
 
 \startmode[trimsize]
     \setuppapersize[trimsize]
 
     \setupbodyfont
-        [mainface, 12pt]
+        [mainface, 11pt]
 
     \setuplayout
         [setups=*lessstrict,
-         backspace=0.6in,
+         backspace=0.8in,
 %         margin=1in,
-         width=65\averagecharwidth,
-         topspace=0.9in,
-         bottomspace=0in,
+         width=56\averagecharwidth,
+         topspace=0.7in,
+         bottomspace=0.6in,
          height=fit,
          header=0cm,
          footer=0.6in]
 \stopmode
+
 \stopenvironment

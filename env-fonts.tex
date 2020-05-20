@@ -1,27 +1,21 @@
-\definefontfamily
-    [mainface]
-    [rm]
-    [EB Garamond]
-%    [Latin Modern Roman]
-%    [Gentium]
+\startenvironment *
 
-\definefallbackfamily
-    [mainface]
-    [rm]
-    [Latin Modern Math]
-    [scale=0.925, range=0x22C0]
+\definefontfamily 
+  [mainface]
+  [rm]
+  [EB Garamond]
+
+\definefallbackfamily 
+  [mainface]
+  [rm]
+  [Latin Modern Math]
+  [scale=0.925, range=0x22C0]
     
-\definefontfamily
-    [mainface]
-    [it]
-    [EB Garamond]
-%    [Latin Modern Roman]
-%    [Gentium]
 
 \definefontfamily
-    [mainface]
-    [mm]
-    [TeX Gyre Pagella Math]
+  [mainface]
+  [mm]
+  [TeX Gyre Pagella Math]
 
 
 \definefontfamily
@@ -41,8 +35,8 @@
     [rm]
     [TypographyTribute]
 
-%\setupbodyfont
-%    [mainface, 10pt]
+% \setupbodyfont
+%  [mainface, 10pt]
 % Wird in den trimsize-files definiert
 
 \definefontsize
@@ -91,14 +85,4 @@
   [GFS Didot]
   [preset=range:greek]
 
-% Ligaturen ausschalten funktioniert nicht
-%\translateinput[auflösen][auf|*|lösen]
-%\enableinputtranslation
-\replaceword[sellig][auflösen][auf{-}{}{\zwnj}lösen]
-\replaceword[sellig][Aufklärung][Auf{-}{}{\zwnj}klärung]
-\replaceword[sellig][aufhörten][auf{-}{}{\zwnj}hörten]
-\replaceword[sellig][aufhören][auf{-}{}{\zwnj}hören]
-\replaceword[sellig][Auflösung][Auf{-}{}{\zwnj}lösung]
-\replaceword[sellig][Auflage][Auf{-}{}{\zwnj}lage]
-
-\setreplacements[sellig]
+\stopenvironment
